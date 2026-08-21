@@ -30,7 +30,7 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Semantic     | `illogical-focus-order`             | Focusable elements can be reached, but their focus sequence does not preserve the logical relationships, meaning, or expected interaction sequence of the interface.                       | 2.4.3        | Serious    | Focus sequence, page structure, and logical grouping  |
 
 
-
+---
 
 | **Category**           | **Violation Name**           | **Description**                                                                                       | **Guidelines**    | **Impact** | **Supplementary Information**|
 |-------------------------|-----------------------|-------------------------------------------------------------------------------------------------------|-------------------|-------------------|------------------|
