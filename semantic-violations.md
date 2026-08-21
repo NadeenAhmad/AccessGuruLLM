@@ -630,34 +630,6 @@ The focus order can be mechanically extracted, but deciding whether it preserves
 
 ---
 
-# Cases Excluded from the Semantic Category
-
-The following cases should not be generated as semantic violations in this benchmark when they can be determined from structure or string comparison alone.
-
-## Landmark Structural Violation
-
-Example:
-
-```html
-<main>Primary content</main>
-<main>Secondary content</main>
-```
-
-This is a **syntax/structural** violation because duplicate main landmarks can be detected automatically without understanding the meaning of the content.
-
-## Label / Accessible-Name Mismatch
-
-Example:
-
-```html
-<button aria-label="Delete item">Save</button>
-```
-
-This is a **syntax/comparison** violation when the criterion is specifically that the visible label text must be contained in the accessible name. It can be detected by automated comparison and does not require understanding the actual action of the control.
-
-This is different from `button-label-mismatch`, where the button's label and accessible name may agree with each other but both are wrong relative to the action the button actually performs.
-
----
 
 # Annotation and Generation Rules
 
