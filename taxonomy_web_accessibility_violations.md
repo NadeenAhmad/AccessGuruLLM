@@ -14,7 +14,7 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Semantic      | `video-captions-not-descriptive`    | Inaccurate video captions.                                 | 1.2.1, 1.2.3      | Critical  |  Video |
 | Semantic      | `lang-mismatch`      | Page language attribute does not match the actual language of the content.                            | 3.1.1             | Serious  |   |
 | Semantic      | `link-text-mismatch`  | Links fail to convey their purpose or are ambiguous.                                                  | 2.4.4, 2.4.9      | Serious  |   |
-| Semantic      | `button-label-mismatch`       | Buttons labels are unclear or fail to specify their purpose.                                            | 4.1.2, 2.5.3             |  Critical  |  |
+| Semantic      | `button-label-mismatch`       | Button labels are unclear or fail to specify their purpose.                                            | 4.1.2, 2.5.3             |  Critical  |  |
 | Semantic      | `form-label-mismatch`         | Forms elements have unclear or incorrect labels.                                                 | 3.3.2             |   Critical |Form context (e.g., surrounding text, instructions)|
 | Semantic      | `ambiguous-heading`  | Headings are vague, repetitive, or fail to describe the content.                                      | 2.4.6, 2.4.10     |  Moderate  |   |
 | Semantic      | `incorrect-semantic-tag`    | A non-semantic tag (e.g., `div` or `span`) is used instead of a proper semantic element (e.g., `header`, `nav`, `main`).                                      | 1.3.1             | Serious  |  Document structure (other headings, section context) |
@@ -24,7 +24,7 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Semantic      | `autocomplete-purpose-mismatch`     | Input field uses an `autocomplete` attribute that does not accurately reflect the field’s actual purpose, potentially misleading assistive technologies. | 1.3.5             |  Serious    | Form   |
 | Semantic      | `color-only-distinction`            | Visual information is conveyed using color alone without additional indicators like text, shape, or pattern, making it inaccessible to users with color vision deficiencies. | 1.4.1             |  Serious    | Visual |
 | Semantic      | `illogical-focus-order`             | Focusable elements receive focus in an order that does not match the visual or logical reading sequence, potentially confusing keyboard users. | 2.4.3             |  Serious    | Navigation |
-| Semantic      | `label-name-mismatch`               | The accessible name for control does not include the visible label text, which may confuse users relying on speech input or screen readers. | 2.5.3             |  Serious    | Input |
+| Semantic      | `label-name-mismatch`               | The accessible name for the control does not include the visible label text, which may confuse users relying on speech input or screen readers. | 2.5.3             |  Serious    | Input |
 
 
 
