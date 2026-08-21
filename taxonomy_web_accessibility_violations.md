@@ -13,7 +13,6 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Semantic      | `image-alt-not-descriptive`      | Inaccurate or misleading alternative text that fails to describe the purpose of the image.            | 1.1.1             |  Critical | Image  |
 | Semantic      | `video-captions-not-descriptive`    | Inaccurate video captions.                                 | 1.2.1, 1.2.3      | Critical  |  Video |
 | Semantic      | `lang-mismatch`      | Page language attribute does not match the actual language of the content.                            | 3.1.1             | Serious  |   |
-| Semantic      | `missing-lang-tag`   | Sections in different languages lack appropriate `lang` attributes.                                   | 3.1.2             |  Serious |   |
 | Semantic      | `link-text-mismatch`  | Links fail to convey their purpose or are ambiguous.                                                  | 2.4.4, 2.4.9      | Serious  |   |
 | Semantic      | `button-label-mismatch`       | Buttons labels are unclear or fail to specify their purpose.                                            | 4.1.2, 2.5.3             |  Critical  |  |
 | Semantic      | `form-label-mismatch`         | Forms elements have unclear or incorrect labels.                                                 | 3.3.2             |   Critical |Form context (e.g., surrounding text, instructions)|
@@ -70,6 +69,7 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Syntax      | `duplicate-id-aria`      |       Ensure every id attribute value used in ARIA and in labels is unique      |       4.1.2      |  Critical |
 | Syntax      | `tabindex`      |       Ensure tabindex attribute values are not greater than 0      |          2.1.1     |  Serious |
 | Syntax      | `valid-lang`      |       Ensure lang attributes have valid values      |    3.1.2       |  Serious |
+| Syntax      | `missing-lang-tag`   | Sections in different languages lack appropriate `lang` attributes.                                   | 3.1.2             |  Serious |   |
 | Syntax      | `aria-required-attr`      |      Ensure elements with ARIA roles have all required ARIA attributes       |      4.1.2       |  Critical |
 | Syntax      | `aria-required-parent`      |     Ensure elements with an ARIA role that require parent roles are contained by them        |  1.3.1           | Critical  |
 | Syntax      | `aria-required-children`      |      Ensure elements with an ARIA role that require child roles contain them       |           1.3.1  |  Critical |
