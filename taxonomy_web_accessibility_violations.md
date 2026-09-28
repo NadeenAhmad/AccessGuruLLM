@@ -130,6 +130,11 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Syntax      | `duplicate-id-active`      |  Ensure every id attribute value of active elements is unique           |      4.1.1       | Serious   |
 | Syntax      | `html-has-lang`      |    Ensure every HTML document has a lang attribute         |   3.1.1          |  Serious |
 | Syntax      | `select-name`      |      Ensure select element has an accessible name       |   4.1.2          |  Critical |
+
+
+
+
+<!-- This is commented out.
 | Syntax      | `status-updates`     | Status changes are not announced to assistive technologies.                                           | 4.1.3             | Serious  |  
 | Syntax      | `hover-focus`        | Content triggered by hover or focus is inaccessible or non-dismissible.                               | 1.4.13            | Serious |  
 | Syntax      | `error-correction`   | No accessible suggestions for correcting input errors.                                                | 3.3.3             | Serious  |  Error context and input requirements  |
@@ -138,10 +143,6 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Syntax      | `single-navigation-method`          | Page provides only one way to locate other pages within the site, limiting user flexibility and discoverability. | 2.4.5             |  Minor    | Navigation |
 
 
-
-
-
-<!-- This is commented out.
 | Semantic      | `sensory-instructions`| Instructions rely on sensory characteristics without alternatives.                                    | 1.3.3             |  Serious |   |
 | Semantic      | `error-messages`     | Errors are not clearly described, leaving users unable to fix them.                                   | 3.3.1             | Serious  |  Error context (e.g., input validation rules) |
 | Semantic      | `error-correction`   | No accessible suggestions for correcting input errors.                                                | 3.3.3             | Serious  |  Error context and input requirements  |
