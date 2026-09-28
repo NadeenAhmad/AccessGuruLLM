@@ -20,7 +20,7 @@ This table presents 55 semantic accessibility violations along with associated H
           <pre>&lt;html lang=&quot;en&quot;&gt; &#10; &lt;img alt=&quot;ERCIM logo&quot; src=&quot;image.png&quot;/&gt; &#10; &lt;/html&gt;</pre>
       </td>
       <td>
-          <html lang="en"><img alt="ERCIM logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/W3C%C2%AE_Icon.svg/1200px-W3C%C2%AE_Icon.svg.png" width="40%"></html>
+          <html lang="en"><img alt="ERCIM logo" src="https://www.ercim.eu/publication/logos/logo-alt.svg" width="40%"></html>
       </td>
   </tr>  
   <tr>
@@ -43,7 +43,7 @@ This table presents 55 semantic accessibility violations along with associated H
     </td>
     <td>
         <!DOCTYPE html>                
-        <html lang="en"><img alt="ERCIM logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/W3C%C2%AE_Icon.svg/1200px-W3C%C2%AE_Icon.svg.png" width="40%"/></html>
+        <html lang="en"><img alt="ERCIM logo" src="https://www.ercim.eu/publication/logos/logo-alt.svg" width="40%"/></html>
     </td>
 </tr>
 <tr>
