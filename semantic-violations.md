@@ -1,17 +1,19 @@
 # Semantic Accessibility Violation Examples
 
-This document provides unambiguous examples of **semantic web accessibility violations**.
+This document provides unambiguous examples of **semantic web accessibility violations**, one per violation type in the taxonomy.
 
 ## Operational definition
 
-A **semantic accessibility violation** is a case in which the relevant HTML, ARIA, label, state, or other accessibility-related syntax is present and structurally valid, but determining whether it is correct requires understanding the **meaning, purpose, context, visual content, relationship, or resulting interaction state** of the webpage.
+A **semantic accessibility violation** is a case in which the relevant HTML, ARIA, label, state, or other accessibility-related syntax is **present and structurally valid**, but determining whether it is correct requires understanding the **meaning, purpose, context, visual content, relationship, or resulting interaction state** of the webpage.
 
-The examples below are intentionally constructed to avoid borderline cases. Each violation contains:
+"Present" includes empty values: `alt=""` is present and valid, so axe-core passes it. Whether it is correct is a semantic question. A *missing* attribute is a syntactic violation.
+
+Each example contains:
 
 - the HTML under test;
-- the supplementary context required for detection;
+- the supplementary context required for detection (for interactive types: the state reached after the action);
 - the expected judgment; and
-- a short explanation of why the case is semantic rather than purely syntactic.
+- a short explanation of why the case is semantic rather than syntactic.
 
 > **Generation rule:** Use clearly incompatible meanings. Do not generate borderline cases where reasonable annotators could disagree.
 
@@ -27,12 +29,12 @@ The examples below are intentionally constructed to avoid borderline cases. Each
 ### HTML
 
 ```html
-<img src="assets/chair.jpg" alt="Red table lamp">
+<img src="img/p-0412.jpg" alt="Red table lamp">
 ```
 
 ### Supplementary context
 
-`assets/chair.jpg` clearly shows a **wooden dining chair** and contains no lamp.
+The image appears in the product grid of a furniture shop. `img/p-0412.jpg` clearly shows a **wooden dining chair** and contains no lamp. The shop also sells lamps, so the alt text is plausible for the page. Only the image reveals the mismatch.
 
 ### Why this is a semantic violation
 
@@ -40,7 +42,34 @@ The `alt` attribute is present and syntactically valid. Detecting the violation 
 
 ---
 
-## 2. Video Captions Inaccurate
+## 2. Image Alt Text Not Descriptive (Empty Alt on an Informative Image)
+
+**Violation:** `image-alt-not-descriptive`  
+**WCAG:** 1.1.1  
+**Required context:** Image and surrounding text  
+**Expected judgment:** Violation
+
+### HTML
+
+```html
+<section>
+  <h2>Quarterly sales</h2>
+  <p>Sales grew in every region this year.</p>
+  <img src="img/fig-03.png" alt="">
+</section>
+```
+
+### Supplementary context
+
+`img/fig-03.png` is a **bar chart** showing sales per region for Q1–Q4 with numeric values. None of these values appear in the surrounding text.
+
+### Why this is a semantic violation
+
+The `alt` attribute is **present** with an empty value, which is valid HTML and marks the image as decorative. axe-core reports no violation. Detecting the problem requires seeing that the image carries information that is not available elsewhere.
+
+---
+
+## 3. Video Captions Inaccurate
 
 **Violation:** `video-captions-inaccurate`  
 **WCAG:** 1.2.2  
@@ -51,13 +80,8 @@ The `alt` attribute is present and syntactically valid. Detecting the violation 
 
 ```html
 <video controls>
-  <source src="assets/directions.mp4" type="video/mp4">
-  <track
-    kind="captions"
-    src="assets/directions-en.vtt"
-    srclang="en"
-    label="English"
-    default>
+  <source src="media/v-01.mp4" type="video/mp4">
+  <track kind="captions" src="media/v-01.en.vtt" srclang="en" label="English" default>
 </video>
 ```
 
@@ -77,7 +101,7 @@ A caption track exists and is correctly associated with the video. The violation
 
 ---
 
-## 3. Page Language Mismatch
+## 4. Page Language Mismatch
 
 **Violation:** `lang-mismatch`  
 **WCAG:** 3.1.1  
@@ -101,11 +125,11 @@ The page content is clearly written in **German**, while the page is declared as
 
 ### Why this is a semantic violation
 
-`lang="en"` is syntactically valid. Detecting the problem requires identifying the actual language of the page content.
+`lang="en"` is syntactically valid. Detecting the problem requires identifying the actual language of the page content. An *invalid* code (e.g., `lang="english"`) would be the syntactic violation `html-lang-valid`.
 
 ---
 
-## 4. Language of Parts Mismatch
+## 5. Language of Parts Mismatch
 
 **Violation:** `language-of-parts-mismatch`  
 **WCAG:** 3.1.2  
@@ -131,131 +155,111 @@ The phrase **"sehr interessant"** is German, not French.
 
 ---
 
-## 5. Link Text Mismatch
+## 6. Link Text Mismatch
 
 **Violation:** `link-text-mismatch`  
 **WCAG:** 2.4.4  
-**Required context:** Destination or next state  
+**Required context:** Destination / next state  
 **Expected judgment:** Violation
 
 ### HTML
 
 ```html
-<a id="invoice-link" href="/action/42">
-  Download invoice
-</a>
+<a href="/action/42">Download invoice</a>
 ```
 
 ### Supplementary context
 
-Following the link opens the user's **Account Settings** page. It does not download or display an invoice.
+- **S0 (current state):** account overview page that has an invoices section, so the link text is plausible.
+- **Action:** activate the link.
+- **S1 (next state):** the user's **Account Settings** page. No invoice is downloaded or displayed.
 
 ### Why this is a semantic violation
 
-The link has valid text and a valid destination. The violation requires comparing the link's stated purpose with the destination reached after activation.
+The link has valid text and a valid destination, and the `href` is opaque. The violation requires comparing the link's stated purpose with the state reached after activation.
 
 ---
 
-## 6. Button Label Mismatch
+## 7. Button Label Mismatch
 
 **Violation:** `button-label-mismatch`  
 **WCAG:** 2.4.6  
-**Required context:** Resulting action or next state  
+**Required context:** Resulting action / next state  
 **Expected judgment:** Violation
 
 ### HTML
 
 ```html
-<button id="account-action">
-  Save changes
-</button>
+<button type="button">Save changes</button>
 ```
 
 ### Supplementary context
 
-Activating the button opens a confirmation dialog that says:
-
-> "Permanently delete your account?"
-
-Confirming the dialog deletes the account.
+- **S0:** profile settings form. Saving is a plausible action here.
+- **Action:** activate the button.
+- **S1:** a confirmation dialog asking **"Permanently delete your account?"** Confirming deletes the account.
 
 ### Why this is a semantic violation
 
-The button is valid and has an accessible label. Detecting the violation requires observing that the actual action is **deletion**, not saving.
+The button is valid and has an accessible name. Detecting the violation requires observing that the actual action is **deletion**, not saving.
 
 ---
 
-## 7. Form Label Mismatch
+## 8. Form Label Mismatch
 
 **Violation:** `form-label-mismatch`  
 **WCAG:** 2.4.6  
-**Required context:** Intended field purpose  
+**Required context:** Intended field purpose / next state  
 **Expected judgment:** Violation
 
 ### HTML
 
 ```html
-<label for="contact-value">Phone number</label>
-<input
-  id="contact-value"
-  name="contact-value"
-  type="text">
+<label for="f1">Phone number</label>
+<input id="f1" name="f1" type="text">
+<button type="submit">Continue</button>
 ```
 
 ### Supplementary context
 
-This field is used to collect the user's **email address**. The form stores the entered value as the account email and later uses it to send confirmation messages.
+- **Action:** enter a value and submit.
+- **S1:** "We sent a confirmation link to **[entered value]**. Check your inbox." The value is stored as the account **email address**.
 
 ### Why this is a semantic violation
 
-The label exists and is correctly associated with the input. The markup itself does not reveal the intended field purpose. Detecting the mismatch requires understanding what information the field is actually meant to collect.
+The label exists and is correctly associated with the input. The markup itself does not reveal the field's purpose (`type="text"`, opaque `id`/`name`). Detecting the mismatch requires the state after submission.
 
 ---
 
-## 8. Widget Label Purpose Mismatch
+## 9. Widget Label Purpose Mismatch
 
 **Violation:** `widget-label-purpose-mismatch`  
 **WCAG:** 2.4.6, 4.1.2  
-**Required context:** Widget content or resulting state  
+**Required context:** Widget content / resulting state  
 **Expected judgment:** Violation
 
 ### HTML
 
 ```html
 <div role="tablist" aria-label="Account sections">
-  <button
-    id="profile-tab"
-    role="tab"
-    aria-selected="false"
-    aria-controls="panel-a">
-    Profile
-  </button>
+  <button id="t1" role="tab" aria-selected="false" aria-controls="panel-a">Profile</button>
 </div>
-
-<div
-  id="panel-a"
-  role="tabpanel"
-  aria-labelledby="profile-tab">
-</div>
+<div id="panel-a" role="tabpanel" aria-labelledby="t1" hidden></div>
 ```
 
 ### Supplementary context
 
-Selecting the **Profile** tab displays a panel containing only:
-
-- credit-card details;
-- billing address; and
-- payment history.
-
-No profile or personal-account information is shown.
+Selecting the **Profile** tab displays a panel containing only credit-card details, billing address, and payment history. No profile information is shown.
 
 ### Why this is a semantic violation
 
-The ARIA relationships are structurally valid. The problem is that the tab label **"Profile"** does not describe the content it reveals.
+The ARIA relationships are structurally valid. The tab label **"Profile"** does not describe the content it reveals.
+
+**Button or widget?** The element is a `<button>`, but its role is `tab`, so this is `widget-label-purpose-mismatch`. The role decides. A plain `<button>` or an accordion trigger would be `button-label-mismatch`.
 
 ---
 
-## 9. Heading Not Descriptive
+## 10. Heading Not Descriptive
 
 **Violation:** `heading-not-descriptive`  
 **WCAG:** 2.4.6  
@@ -267,14 +271,12 @@ The ARIA relationships are structurally valid. The problem is that the tab label
 ```html
 <section>
   <h2>Shipping Information</h2>
-
   <p>Select a payment method:</p>
   <ul>
     <li>Visa</li>
     <li>Mastercard</li>
     <li>PayPal</li>
   </ul>
-
   <p>Your payment will be processed after order confirmation.</p>
 </section>
 ```
@@ -289,38 +291,10 @@ The heading is correctly marked up as an `<h2>`. Detecting the violation require
 
 ---
 
-## 10. Semantic Element Purpose Mismatch
-
-**Violation:** `semantic-element-purpose-mismatch`  
-**WCAG:** 1.3.1, 4.1.2  
-**Required context:** Component content and function  
-**Expected judgment:** Violation
-
-### HTML
-
-```html
-<div role="search" aria-label="Product search">
-  <h2>Review your order</h2>
-  <p>Order #4832</p>
-  <p>Total: €79.00</p>
-  <button>Confirm purchase</button>
-</div>
-```
-
-### Supplementary context
-
-The region is an **order-confirmation component**. It contains no search field and performs no search function.
-
-### Why this is a semantic violation
-
-`role="search"` is syntactically valid. Detecting that the role is wrong requires understanding the actual function of the component.
-
----
-
 ## 11. Landmark Purpose Mismatch
 
 **Violation:** `landmark-purpose-mismatch`  
-**WCAG:** 1.3.6  
+**WCAG:** 1.3.1, 2.4.6  
 **Required context:** Landmark content and page structure  
 **Expected judgment:** Violation
 
@@ -338,11 +312,11 @@ The region is an **order-confirmation component**. It contains no search field a
 
 ### Supplementary context
 
-This navigation is the site's **primary navigation** and appears in the page header on every page. The actual footer contains a separate set of links.
+This navigation is the site's **primary navigation** and appears in the page header. The actual footer contains a separate set of links.
 
 ### Why this is a semantic violation
 
-The navigation landmark is structurally valid and has a label. The label is semantically wrong because it identifies primary header navigation as footer navigation.
+The navigation landmark is structurally valid and has a label. The label is wrong because it identifies primary header navigation as footer navigation. A wrong landmark *role* is the same violation type, e.g., `role="search"` on an order-confirmation region.
 
 ---
 
@@ -359,21 +333,12 @@ The navigation landmark is structurally valid and has a label. The label is sema
 <head>
   <title>Contact Us</title>
 </head>
-
 <body>
   <main>
     <h1>Plans and Pricing</h1>
     <p>Choose the subscription plan that fits your organization.</p>
-
-    <section>
-      <h2>Basic</h2>
-      <p>€10 per month</p>
-    </section>
-
-    <section>
-      <h2>Professional</h2>
-      <p>€30 per month</p>
-    </section>
+    <section><h2>Basic</h2><p>€10 per month</p></section>
+    <section><h2>Professional</h2><p>€30 per month</p></section>
   </main>
 </body>
 ```
@@ -398,11 +363,8 @@ A valid, non-empty `<title>` exists. Detecting the problem requires understandin
 ### HTML
 
 ```html
-<label for="email-value">Email address</label>
-<input
-  id="email-value"
-  type="text"
-  autocomplete="postal-code">
+<label for="a1">Email address</label>
+<input id="a1" type="text" autocomplete="postal-code">
 ```
 
 ### Supplementary context
@@ -411,7 +373,7 @@ The field collects the user's **email address** and is used for account notifica
 
 ### Why this is a semantic violation
 
-`postal-code` is a syntactically valid `autocomplete` token. The problem is that it describes a different type of information from the field's actual purpose.
+`postal-code` is a syntactically valid `autocomplete` token. The problem is that it describes a different type of information than the field's actual purpose.
 
 ---
 
@@ -419,20 +381,14 @@ The field collects the user's **email address** and is used for account notifica
 
 **Violation:** `aria-state-mismatch`  
 **WCAG:** 4.1.2  
-**Required context:** Current rendered or interaction state  
+**Required context:** Current rendered / interaction state  
 **Expected judgment:** Violation
 
 ### HTML
 
 ```html
-<button
-  id="details-control"
-  aria-expanded="false"
-  aria-controls="product-details">
-  Product details
-</button>
-
-<div id="product-details">
+<button aria-expanded="false" aria-controls="d1">Product details</button>
+<div id="d1">
   <p>Material: solid oak</p>
   <p>Height: 85 cm</p>
 </div>
@@ -444,7 +400,7 @@ In the current rendered state, the **Product details panel is visible and expand
 
 ### Why this is a semantic violation
 
-`aria-expanded="false"` is a valid ARIA value. Detecting the violation requires comparing the declared accessibility state with the actual current UI state.
+`aria-expanded="false"` is a valid ARIA value. Detecting the violation requires comparing the declared state with the actual UI state.
 
 ---
 
@@ -460,12 +416,12 @@ In the current rendered state, the **Product details panel is visible and expand
 ```html
 <table>
   <tr>
-    <th id="product">Product</th>
-    <th id="price">Price</th>
+    <th id="h1">Product</th>
+    <th id="h2">Price</th>
   </tr>
   <tr>
-    <td headers="price">Office chair</td>
-    <td headers="product">€120</td>
+    <td headers="h2">Office chair</td>
+    <td headers="h1">€120</td>
   </tr>
 </table>
 ```
@@ -476,7 +432,7 @@ In the current rendered state, the **Product details panel is visible and expand
 
 ### Why this is a semantic violation
 
-Both `headers` references point to existing IDs, so the syntax is structurally valid. The violation is that the semantic associations are reversed.
+Both `headers` references point to existing `<th>` IDs, so the syntax is valid. The violation is that the associations are reversed.
 
 ---
 
@@ -490,28 +446,14 @@ Both `headers` references point to existing IDs, so the syntax is structurally v
 ### HTML
 
 ```html
-<label for="email">Email address</label>
-
-<input
-  id="email"
-  type="text"
-  aria-invalid="true"
-  aria-describedby="email-error">
-
-<p id="email-error">
-  Your password must contain at least eight characters.
-</p>
+<label for="e1">Email address</label>
+<input id="e1" type="text" aria-invalid="true" aria-describedby="e1-msg">
+<p id="e1-msg">Your password must contain at least eight characters.</p>
 ```
 
 ### Supplementary context
 
-The user entered:
-
-```text
-john@
-```
-
-The form rejects the value because it is **not a valid email address**. No password field is involved in this error.
+The user entered `john@`. The form rejects the value because it is **not a valid email address**. No password field is involved.
 
 ### Why this is a semantic violation
 
@@ -519,139 +461,70 @@ The error message exists and is programmatically associated with the input. Dete
 
 ---
 
-## 17. Color-Only Distinction
+# Boundary Rules Between Semantic Violation Types
 
-**Violation:** `color-only-distinction`  
-**WCAG:** 1.4.1  
-**Required context:** Rendered visual state and meaning of the colors  
-**Expected judgment:** Violation
-
-### HTML
-
-```html
-<style>
-  .requires-action {
-    color: red;
-  }
-
-  .complete {
-    color: green;
-  }
-</style>
-
-<p>Items shown in red require your action.</p>
-
-<ul>
-  <li class="requires-action">Invoice #1042</li>
-  <li class="complete">Invoice #1043</li>
-</ul>
-```
-
-### Supplementary context
-
-In the rendered page:
-
-- Invoice #1042 is red;
-- Invoice #1043 is green; and
-- there is **no icon, text label, pattern, shape, or other non-color indicator** attached to either invoice.
-
-The colors communicate status: red means **requires action**, and green means **complete**.
-
-### Why this is a semantic violation
-
-The violation is not merely that colors differ. It is that **color alone communicates meaningful status information**. Detecting this requires understanding what the colors represent in context.
+1. **Button vs. widget: the role decides, not the HTML element.**
+   - If the element's role is `button` (`<button>`, `<input type="button|submit|reset|image">`, `role="button"`, accordion triggers), use `button-label-mismatch`.
+   - If the element has another widget role (`tab`, `menuitem`, `treeitem`, `option`, `switch`, …), use `widget-label-purpose-mismatch`. This holds even when the element is a `<button>`: `<button role="tab">Profile</button>` is a tab.
+2. **Images inside controls are judged as the control's label.**
+   - `<input type="image">` is a button, so its `alt` falls under `button-label-mismatch`.
+   - An `<img>` that is the only content of a link, and an `<area>`, fall under `link-text-mismatch`.
+3. **Empty alt vs. missing alt.**
+   - `alt` missing: syntactic (`image-alt`).
+   - `alt=""` on a decorative image: correct, not a violation.
+   - `alt=""` on an informative image: `image-alt-not-descriptive`.
+   - Exception: `alt=""` on an image that is the only content of a link or button makes axe report `link-name` / `button-name`. That is syntactic, so do not use such cases for the semantic type.
+4. **Language.**
+   - `lang-mismatch` is about `<html lang>`. `language-of-parts-mismatch` is about `lang` on an element inside the page.
+   - An *invalid* language code (`lang="english"`, `lang="#!"`, `lang=""`) is syntactic (`html-lang-valid` / `valid-lang`), not semantic.
+5. **Form label vs. autocomplete.**
+   - The visible label is wrong: `form-label-mismatch`.
+   - The label is right but the `autocomplete` token is wrong: `autocomplete-purpose-mismatch`.
+6. **Heading vs. page title.** A heading describes its section. The `<title>` describes the whole page.
 
 ---
-
-## 18. Illogical Focus Order
-
-**Violation:** `illogical-focus-order`  
-**WCAG:** 2.4.3  
-**Required context:** Focus sequence and logical content grouping  
-**Expected judgment:** Violation
-
-### HTML
-
-```html
-<section>
-  <h2>Personal information</h2>
-
-  <label>
-    Name
-    <input type="text" tabindex="1">
-  </label>
-
-  <label>
-    Street
-    <input type="text" tabindex="3">
-  </label>
-
-  <label>
-    City
-    <input type="text" tabindex="5">
-  </label>
-</section>
-
-<section>
-  <h2>Newsletter preferences</h2>
-
-  <label>
-    <input type="checkbox" tabindex="2">
-    Technology
-  </label>
-
-  <label>
-    <input type="checkbox" tabindex="4">
-    Science
-  </label>
-</section>
-```
-
-### Supplementary context
-
-The rendered page presents two clearly separate tasks:
-
-1. **Personal information:** Name → Street → City
-2. **Newsletter preferences:** Technology → Science
-
-The keyboard focus sequence is:
-
-```text
-Name
-→ Technology
-→ Street
-→ Science
-→ City
-```
-
-### Why this is a semantic violation
-
-The focus order can be mechanically extracted, but deciding whether it preserves the logical task sequence requires understanding the grouping and meaning of the page content.
-
----
-
 
 # Annotation and Generation Rules
 
-To keep generated cases unambiguous:
+To keep generated cases unambiguous and free of shortcuts:
 
 1. **Use clear semantic contradictions.**  
-   Prefer `chair` vs. `lamp`, `save` vs. `delete`, or `payment` vs. `shipping` over closely related concepts.
+   Prefer `chair` vs. `lamp`, `save` vs. `delete`, or `payment` vs. `shipping` over closely related concepts (chair vs. armchair).
 
-2. **Do not leak the answer unnecessarily in the HTML.**  
-   For example, for a form-label mismatch, use `type="text"` rather than `type="email"` if the intended purpose is supplied separately as context.
+2. **Keep the wrong value plausible on the page.**  
+   The wrong alt text, label, or title should fit the page's domain (a lamp on a furniture shop). The mismatch must then be visible only in the image or next state, not from page text alone.
 
-3. **Provide only observable supplementary information.**  
+3. **Do not leak the answer in the HTML.**
+   - Use `type="text"` rather than `type="email"` when the field's purpose is supplied as context.
+   - Use opaque file names, ids, classes, and hrefs: `img/p-0412.jpg`, not `chair.jpg`; `/action/42`, not `/settings`; no `id="voiceSearchButton"`.
+   - Do not use page titles such as "Failed Example 2".
+
+4. **Strip violation markers before detection.**  
+   Comments such as `<!-- Accessibility Violation Starts Here -->` are for human readers only. Remove them from the HTML passed to the detector.
+
+5. **Provide only observable supplementary information.**  
    Supply the image, next state, destination, form purpose, current UI state, or surrounding content. Do not state "this is a violation" in the context.
 
-4. **Avoid borderline wording.**  
-   Do not use labels such as "Learn more", "Details", or other cases whose adequacy may reasonably depend on interpretation unless the context makes the mismatch indisputable.
+6. **For interactive types, the next state must be necessary.**  
+   For link, button, widget, form label, and error message, the current state (S0) must not contradict the label on its own. For example, avoid text like "Click the button below to reveal tips" next to a button labelled "Submit form". The contradiction should appear only in the state reached after the action (S1).
 
-5. **Keep syntax valid.**  
-   Semantic examples should not simultaneously contain missing attributes, invalid ARIA values, broken references, duplicate IDs, or other syntax violations.
+7. **Visible text and accessible name should match.**  
+   Do not create the mismatch with an `aria-label` that differs from the visible text. That can be detected by string comparison (WCAG 2.5.3, label in name) without understanding the next state. Change the visible label itself.
 
-6. **Use one primary violation per generated case.**  
-   Avoid combining multiple failures in a single example unless the benchmark explicitly evaluates multi-violation cases.
+8. **Avoid borderline wording.**  
+   Do not use labels such as "Learn more", "More", "Go", or "Details", whose adequacy depends on interpretation.
 
-7. **Make supplementary context sufficient for agreement.**  
-   A human annotator should be able to determine the violation from the supplied HTML and context without guessing hidden implementation details.
+9. **Keep syntax valid.**  
+   Run axe-core on every case. It should report no violations related to the element under test. Invalid `lang` codes, broken `aria-labelledby` references, duplicate `<title>` elements, `tabindex > 0`, and similar are syntactic and do not belong in the semantic set.
+
+10. **Use one primary violation per generated case.**  
+    Avoid combining multiple failures in a single example unless the benchmark explicitly evaluates multi-violation cases.
+
+11. **Make supplementary context sufficient for agreement.**  
+    A human annotator should be able to determine the violation from the supplied HTML and context without guessing hidden implementation details.
+
+12. **Do not copy public test suites verbatim.**  
+    W3C ACT rule examples and similar public sets may be in LLM training data. Write new content, or adapt it and cite the source.
+
+13. **Use local, licensed assets.**  
+    Store images and videos in the dataset instead of hotlinking. Record the license of each asset.
