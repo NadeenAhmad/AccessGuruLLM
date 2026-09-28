@@ -114,7 +114,6 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Syntax      | `scrollable-region-focusable`      |    Ensure elements that have scrollable content are accessible by keyboard         |    2.1.1, 2.4.3         |  Serious |
 | Syntax      | `no-autoplay-audio`      |   Ensure `<video>` or `<audio>` elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio          |       1.4.2      |  Moderate |
 | Syntax      | `region`      |     Ensure all page content is contained by landmarks        |      1.3.1       |  Moderate |
-| Syntax      | `frame-tested`      |   Ensure <iframe> and <frame> elements contain the axe-core script          |     4.1.2, 2.4.2 ,       |  Critical |
 | Syntax      | `frame-title`      |      Ensure `<iframe>` and `<frame>` elements have an accessible name       |   4.1.2, 2.4.2          | Serious  | 
 | Syntax      | `frame-title-unique`      |    Ensure all page content is contained by landmarks         | 4.1.2, 2.4.2             |  Moderate |
 | Syntax      | `video-caption`      |    Ensure `<video>` elements have captions         |   1.2.2          | Critical  |
@@ -141,7 +140,7 @@ Each violation includes a **Violation Name**, **Description**, the corresponding
 | Syntax      | `single-key-shortcut-no-modifier`   | A character key shortcut is active without a modifier key or a way to disable/remap it, which may interfere with assistive technologies. | 2.1.4             |  Serious    | Input  |
 | Syntax      | `sensory-instructions`| Instructions rely on sensory characteristics without alternatives.                                    | 1.3.3             |  Serious |   |
 | Syntax      | `single-navigation-method`          | Page provides only one way to locate other pages within the site, limiting user flexibility and discoverability. | 2.4.5             |  Minor    | Navigation |
-
+| Syntax      | `frame-tested`      |   Ensure <iframe> and <frame> elements contain the axe-core script          |     4.1.2, 2.4.2 ,       |  Critical |
 
 | Semantic      | `sensory-instructions`| Instructions rely on sensory characteristics without alternatives.                                    | 1.3.3             |  Serious |   |
 | Semantic      | `error-messages`     | Errors are not clearly described, leaving users unable to fix them.                                   | 3.3.1             | Serious  |  Error context (e.g., input validation rules) |
