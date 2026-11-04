@@ -343,9 +343,9 @@ nadeen.fathallah@ki.uni-stuttgart.de
 [![CC BY 4.0 License](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)  
 The AccessGuru dataset is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
- Code under this repo is licensed under a MIT License.
+ Code under this repo is licensed under an MIT License.
 
-## 📋 [Read our paper](https://arxiv.org/pdf/2507.19549?)
+## 📋 [Read our paper](https://dl.acm.org/doi/pdf/10.1145/3663547.3746360)
 
 ## 📄 Citation
 
