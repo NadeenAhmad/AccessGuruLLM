@@ -15,20 +15,24 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | **Category** | **Violation Name** | **Description** | **WCAG** | **Impact** | **Supplementary Information Required** |
 | --- | --- | --- | --- | --- | --- |
 | Semantic | `image-alt-not-descriptive` | Alternative text is present but is inaccurate, misleading, or does not correctly describe the content or purpose of the image, including an empty `alt=""` on an informative image (`<img>`, `<svg role="img">`, `role="img"`, `<object>`). | 1.1.1 | Critical | Image and surrounding context |
-| Semantic | `video-captions-inaccurate` | Captions are present but do not accurately represent the spoken content or meaningful audio information in the video. | 1.2.2 | Critical | Video/audio and captions |
+| Semantic | `video-captions-inaccurate` (dataset name: `video-captions-not-descriptive`) | Captions are present but do not accurately represent the spoken content or meaningful audio information in the video. | 1.2.2 | Critical | Video/audio and captions |
 | Semantic | `lang-mismatch` | A valid page-level `lang` attribute is present, but its value does not match the actual language of the page content. | 3.1.1 | Serious | Page content |
 | Semantic | `language-of-parts-mismatch` | A valid language declaration is present on a passage or component, but it does not match the actual language of that content. | 3.1.2 | Serious | Text of the relevant passage/component |
 | Semantic | `link-text-mismatch` | Link text or its accessible name is present but does not accurately describe the destination or purpose of the link. | 2.4.4 | Serious | Surrounding context and destination/next state |
 | Semantic | `button-label-mismatch` | An element with the button role has a label or accessible name, but it does not accurately describe the action or result produced by activating it. | 2.4.6 | Critical | Button context and resulting/next state |
 | Semantic | `form-label-mismatch` | A form control has a label, but the label does not accurately describe the control's purpose or the information expected from the user. | 2.4.6 | Critical | Form control, surrounding context, and expected input |
 | Semantic | `widget-label-purpose-mismatch` | An element with a widget role other than button (e.g., `tab`, `menuitem`, `treeitem`, `option`, `switch`) has a label that does not accurately describe its content, purpose, or resulting action. | 2.4.6, 4.1.2 | Serious | Widget context and resulting/next state |
-| Semantic | `heading-not-descriptive` | A heading is present but does not accurately describe the topic or purpose of the content it introduces. | 2.4.6 | Moderate | Heading and associated section content |
+| Semantic | `heading-not-descriptive` (dataset name: `ambiguous-heading`) | A heading is present but does not accurately describe the topic or purpose of the content it introduces. | 2.4.6 | Moderate | Heading and associated section content |
 | Semantic | `landmark-purpose-mismatch` | A landmark is structurally valid, but its role (e.g., `role="search"`, `<nav>`, `<aside>`) or accessible label does not describe the actual purpose of the region. | 1.3.1, 2.4.6 | Serious | Landmark content and surrounding document structure |
 | Semantic | `page-title-not-descriptive` | A page title is present but does not accurately describe the topic or purpose of the page. | 2.4.2 | Serious | Entire page content and purpose |
 | Semantic | `autocomplete-purpose-mismatch` | An input has a syntactically valid `autocomplete` value, but that value does not correspond to the actual purpose of the field. | 1.3.5 | Serious | Form-field label, expected input, and form context |
 | Semantic | `aria-state-mismatch` | A valid ARIA state or property is present, but its value does not correspond to the actual state of the interface, e.g., `aria-expanded="false"` for content that is currently expanded. | 4.1.2 | Serious | Current visual/interactive state |
 | Semantic | `table-header-association-mismatch` | Table header associations are syntactically present but associate data cells with headers that do not represent their actual row or column meaning. | 1.3.1 | Serious | Entire table and header/data relationships |
 | Semantic | `error-message-mismatch` | An error message is present but identifies the wrong field, describes the wrong problem, or does not correspond to the actual invalid input. | 3.3.1 | Serious | Form values, validation state, and error message |
+| Semantic | `error-correction` | No accessible suggestions for correcting input errors. | 3.3.3 | Serious | Error context and input requirements |
+| Semantic | `label-name-mismatch` | The accessible name for control does not include the visible label text, which may confuse users relying on speech input or screen readers. | 2.5.3 | Serious | Input |
+| Semantic | `missing-lang-tag` | Sections in different languages lack appropriate lang attributes. | 3.1.2 | Serious |  |
+| Semantic | `sensory-instructions` | Instructions rely on sensory characteristics without alternatives. | 1.3.3 | Serious |  |
 
 ---
 
@@ -40,8 +44,9 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Layout | `meta-viewport-large` | Ensure `<meta name="viewport">` can scale a significant amount | 1.4.4 | Minor | |
 | Layout | `color-contrast` | Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds | 1.4.3 | Serious | Color information (background and foreground) |
 | Layout | `avoid-inline-spacing` | Ensure that text spacing set through style attributes can be adjusted with custom stylesheets | 1.4.12 | Serious | |
-| Layout | `target-size` | Ensure touch targets have sufficient size and space | 2.5.5 | Serious | |
+| Layout | `target-size` | Ensure touch targets have sufficient size and space | 2.5.8 | Serious | |
 | Layout | `color-contrast-enhanced` | Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds | 1.4.6 | Serious | Color information (background and foreground) |
+| Layout | `css-orientation-lock` | Ensure content is not locked to any specific display orientation, and the content is operable in all display orientations | 1.3.4 | Serious |  |
 
 ---
 
@@ -58,14 +63,14 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Syntax | `autocomplete-valid` | Ensure the autocomplete attribute is correct and suitable for the form field | 1.3.5 | Serious |
 | Syntax | `role-img-alt` | Ensure `[role="img"]` elements have alternative text | 1.1.1 | Serious |
 | Syntax | `td-headers-attr` | Ensure that each cell in a table that uses the headers attribute refers only to other `<th>` elements in that table | 1.3.1 | Serious |
-| Syntax | `area-alt` | Ensure `<area>` elements of image maps have alternative text | 2.4.4, 4.1.2 | Critical |
+| Syntax | `area-alt` | Ensure `<area>` elements of image maps have alternative text | 1.1.1, 2.4.4, 4.1.2 | Critical |
 | Syntax | `object-alt` | Ensure `<object>` elements have alternative text | 1.1.1 | Serious |
 | Syntax | `svg-img-alt` | Ensure `<svg>` elements with an img, graphics-document or graphics-symbol role have an accessible text | 1.1.1 | Serious |
 | Syntax | `input-image-alt` | Ensure `<input type="image">` elements have alternative text | 1.1.1 | Critical |
 | Syntax | `image-alt` | Ensure `<img>` elements have alternative text or a role of none or presentation | 1.1.1 | Critical |
 | Syntax | `html-lang-valid` | Ensure the lang attribute of the `<html>` element has a valid value | 3.1.1 | Serious |
 | Syntax | `html-xml-lang-mismatch` | Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page | 3.1.1 | Moderate |
-| Syntax | `duplicate-id-aria` | Ensure every id attribute value used in ARIA and in labels is unique | 4.1.2 | Critical |
+| Syntax | `duplicate-id-aria` | Ensure every id attribute value used in ARIA and in labels is unique | 4.1.1 | Critical |
 | Syntax | `tabindex` | Ensure tabindex attribute values are not greater than 0 | 2.1.1 | Serious |
 | Syntax | `valid-lang` | Ensure lang attributes have valid values | 3.1.2 | Serious |
 | Syntax | `aria-required-attr` | Ensure elements with ARIA roles have all required ARIA attributes | 4.1.2 | Critical |
@@ -76,7 +81,7 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Syntax | `aria-prohibited-attr` | Ensure ARIA attributes are not prohibited for an element's role | 4.1.2 | Serious |
 | Syntax | `list` | Ensure that lists are structured correctly | 1.3.1 | Serious |
 | Syntax | `frame-focusable-content` | Ensure `<frame>` and `<iframe>` elements with focusable content do not have tabindex=-1 | 2.1.1 | Serious |
-| Syntax | `meta-refresh` | Ensure `<meta http-equiv="refresh">` is not used for delayed refresh | 2.2.1 | Critical |
+| Syntax | `meta-refresh` | Ensure `<meta http-equiv="refresh">` is not used for delayed refresh | 2.2.1, 2.2.4, 3.2.5 | Critical |
 | Syntax | `marquee` | Ensure `<marquee>` elements are not used | 2.2.2 | Serious |
 | Syntax | `skip-link` | Ensure all skip links have a focusable target | 2.4.1 | Moderate |
 | Syntax | `landmark-no-duplicate-contentinfo` | Ensure the document has at most one contentinfo landmark | 1.3.1 | Moderate |
@@ -88,7 +93,7 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Syntax | `landmark-no-duplicate-main` | Ensure the document has at most one main landmark | 1.3.1 | Moderate |
 | Syntax | `landmark-no-duplicate-banner` | Ensure the document has at most one banner landmark | 1.3.1 | Moderate |
 | Syntax | `document-title` | Ensure each HTML document contains a non-empty `<title>` element | 2.4.2 | Serious |
-| Syntax | `label` | Ensure every form element has a label | 4.1.2 | Critical |
+| Syntax | `label` | Ensure every form element has a label | 1.3.1, 4.1.2 | Critical |
 | Syntax | `label-title-only` | Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes | 3.3.2 | Serious |
 | Syntax | `summary-name` | Ensure summary elements have discernible text | 4.1.2 | Serious |
 | Syntax | `definition-list` | Ensure `<dl>` elements are structured correctly | 1.3.1 | Serious |
@@ -98,7 +103,7 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Syntax | `empty-heading` | Ensure headings have discernible text | 1.3.1, 2.4.6 | Minor |
 | Syntax | `listitem` | Ensure `<li>` elements are used semantically | 1.3.1 | Serious |
 | Syntax | `image-redundant-alt` | Ensure image alternative is not repeated as text | 1.1.1 | Minor |
-| Syntax | `link-name` | Ensure links have discernible text | 2.4.4, 2.4.9 | Serious |
+| Syntax | `link-name` | Ensure links have discernible text | 2.4.4, 4.1.2 | Serious |
 | Syntax | `link-in-text-block` | Ensure links are distinguished from surrounding text in a way that does not rely on color | 1.4.1 | Serious |
 | Syntax | `input-button-name` | Ensure input buttons have discernible text | 4.1.2 | Critical |
 | Syntax | `aria-text` | Ensure role="text" is used on elements with no focusable descendants | 4.1.2 | Serious |
@@ -110,12 +115,12 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Syntax | `aria-dialog-name` | Ensure every ARIA dialog and alertdialog node has an accessible name | 4.1.2 | Serious |
 | Syntax | `aria-toggle-field-name` | Ensure every ARIA toggle field has an accessible name | 4.1.2 | Serious |
 | Syntax | `aria-hidden-body` | Ensure aria-hidden="true" is not present on the document body | 1.3.1, 4.1.2 | Critical |
-| Syntax | `aria-hidden-focus` | Ensure aria-hidden elements are not focusable nor contain focusable elements | 4.1.2 | Serious |
+| Syntax | `aria-hidden-focus` | Ensure aria-hidden elements are not focusable nor contain focusable elements | 1.3.1, 4.1.2 | Serious |
 | Syntax | `nested-interactive` | Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies | 4.1.2 | Serious |
 | Syntax | `scrollable-region-focusable` | Ensure elements that have scrollable content are accessible by keyboard | 2.1.1, 2.4.3 | Serious |
 | Syntax | `no-autoplay-audio` | Ensure `<video>` or `<audio>` elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio | 1.4.2 | Moderate |
 | Syntax | `region` | Ensure all page content is contained by landmarks | 1.3.1 | Moderate |
-| Syntax | `frame-title` | Ensure `<iframe>` and `<frame>` elements have an accessible name | 4.1.2, 2.4.2 | Serious |
+| Syntax | `frame-title` | Ensure `<iframe>` and `<frame>` elements have an accessible name | 2.4.1, 4.1.2 | Serious |
 | Syntax | `frame-title-unique` | Ensure `<iframe>` and `<frame>` elements contain a unique title attribute | 4.1.2, 2.4.2 | Moderate |
 | Syntax | `video-caption` | Ensure `<video>` elements have captions | 1.2.2 | Critical |
 | Syntax | `heading-order` | Ensure the order of headings is semantically correct | 1.3.1 | Moderate |
@@ -126,7 +131,22 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Syntax | `button-name` | Ensure buttons have discernible text | 4.1.2 | Critical |
 | Syntax | `aria-roles` | Ensure all elements with a role attribute use a valid value | 4.1.2 | Critical |
 | Syntax | `html-has-lang` | Ensure every HTML document has a lang attribute | 3.1.1 | Serious |
-| Syntax | `select-name` | Ensure select element has an accessible name | 4.1.2 | Critical |
+| Syntax | `select-name` | Ensure select element has an accessible name | 1.3.1, 4.1.2 | Critical |
+| Syntax | `aria-braille-equivalent` | Ensure aria-braillelabel and aria-brailleroledescription have a non-braille equivalent | 4.1.2 | Serious |
+| Syntax | `aria-conditional-attr` | Ensure ARIA attributes are used as described in the specification of the element's role | 4.1.2 | Serious |
+| Syntax | `aria-roledescription` | Ensure aria-roledescription is only used on elements with an implicit or explicit role | 4.1.2 | Serious |
+| Syntax | `aria-treeitem-name` | Ensure every ARIA treeitem node has an accessible name | 4.1.2 | Serious |
+| Syntax | `duplicate-id` | Ensures every id attribute value is unique | 4.1.1 | Minor |
+| Syntax | `duplicate-id-active` | Ensures every id attribute value of active elements is unique | 4.1.1 | Serious |
+| Syntax | `form-field-multiple-labels` | Ensure form field does not have multiple label elements | 3.3.2 | Moderate |
+| Syntax | `frame-tested` | Ensure `<iframe>` and `<frame>` elements contain the axe-core script | 4.1.2, 2.4.2 | Critical |
+| Syntax | `landmark-complementary-is-top-level` | Ensures the complementary landmark or aside is at top level | 1.3.1 | Moderate |
+| Syntax | `meta-refresh-no-exceptions` | Ensure `<meta http-equiv="refresh">` is not used for delayed refresh | 2.2.4, 3.2.5 | Minor |
+| Syntax | `p-as-heading` | Ensure bold, italic text and font-size is not used to style `<p>` elements as a heading | 1.3.1 | Serious |
+| Syntax | `single-key-shortcut-no-modifier` | A character key shortcut is active without a modifier key or a way to disable/remap it, which may interfere with assistive technologies. | 2.1.4 | Serious |
+| Syntax | `table-duplicate-name` | Ensure the `<caption>` element does not contain the same text as the summary attribute | 1.3.1 | Minor |
+| Syntax | `table-fake-caption` | Ensure that tables with a caption use the `<caption>` element. | 1.3.1 | Serious |
+| Syntax | `td-has-header` | Ensure that each non-empty data cell in a `<table>` larger than 3 by 3  has one or more table headers | 1.3.1 | Critical |
 
 <!-- This is commented out.
 | Syntax      | `status-updates`     | Status changes are not announced to assistive technologies.                                           | 4.1.3             | Serious  |  

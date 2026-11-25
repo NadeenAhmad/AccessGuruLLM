@@ -1,190 +1,378 @@
 {
-   "area-alt": ["2.4.4 Link Purpose (In Context)", "4.1.2 Name, Role, Value"],
-    "aria-allowed-attr": ["4.1.2 Name, Role, Value"],
-    "aria-braille-equivalent": ["4.1.2 Name, Role, Value"],
-    "aria-command-name": ["4.1.2 Name, Role, Value"],
-    "aria-conditional-attr": ["4.1.2 Name, Role, Value"],
-    "aria-deprecated-role": ["4.1.2 Name, Role, Value"],
-    "aria-hidden-body": ["1.3.1 Info and Relationships", "4.1.2 Name, Role, Value"],
-    "aria-hidden-focus": ["4.1.2 Name, Role, Value"],
-    "aria-input-field-name": ["4.1.2 Name, Role, Value"],
-    "aria-meter-name": ["1.1.1 Non-text Content"],
-    "aria-progressbar-name": ["1.1.1 Non-text Content"],
-    "aria-prohibited-attr": ["4.1.2 Name, Role, Value"],
-    "aria-required-attr": ["4.1.2 Name, Role, Value"],
-    "aria-required-children": ["1.3.1 Info and Relationships"],
-    "aria-required-parent": ["1.3.1 Info and Relationships"],
-    "aria-roles": ["4.1.2 Name, Role, Value"],
-    "aria-toggle-field-name": ["4.1.2 Name, Role, Value"],
-    "aria-tooltip-name": ["4.1.2 Name, Role, Value"],
-    "aria-valid-attr-value": ["4.1.2 Name, Role, Value"],
-    "aria-valid-attr": ["4.1.2 Name, Role, Value"],
-    "blink": ["2.3.1 Three Flashes or Below Threshold"],
-    "button-name": ["4.1.2 Name, Role, Value"],
-    "bypass": ["2.4.1 Bypass Blocks"],
-    "color-contrast": ["1.4.3 Contrast (Minimum)"],
-    "definition-list": ["1.3.1 Info and Relationships"],
-    "dlitem": ["1.3.1 Info and Relationships"],
-    "document-title": ["2.4.2 Page Titled"],
-    "duplicate-id-aria": ["4.1.2 Name, Role, Value"],
-    "form-field-multiple-labels": ["3.3.2 Labels or Instructions"],
-    "frame-focusable-content": ["2.1.1 Keyboard"],
-    "frame-title-unique": ["4.1.2 Name, Role, Value", "2.4.2 Page Titled"],
-    "frame-title": ["4.1.2 Name, Role, Value", "2.4.2 Page Titled"],
-    "html-has-lang": ["3.1.1 Language of Page"],
-    "html-lang-valid": ["3.1.2 Language of Parts"],
-    "html-xml-lang-mismatch": ["3.1.2 Language of Parts"],
-    "image-alt": ["1.1.1 Non-text Content"],
-    "input-button-name": ["4.1.2 Name, Role, Value"],
-    "input-image-alt": ["1.1.1 Non-text Content"],
-    "label": ["4.1.2 Name, Role, Value"],
-    "link-in-text-block": ["1.4.1 Use of Color"],
-    "link-name": ["2.4.4 Link Purpose (In Context)", "2.4.9 Link Purpose (Link Only)"],
-    "list": ["1.3.1 Info and Relationships"],
-    "listitem": ["1.3.1 Info and Relationships"],
-    "marquee": ["2.3.1 Three Flashes or Below Threshold"],
-    "meta-refresh": ["2.2.1 Timing Adjustable"],
-    "meta-viewport": ["1.4.4 Resize text"],
-    "nested-interactive": ["4.1.2 Name, Role, Value"],
-    "no-autoplay-audio": ["1.4.2 Audio Control"],
-    "object-alt": ["1.1.1 Non-text Content"],
-    "role-img-alt": ["1.1.1 Non-text Content"],
-    "scrollable-region-focusable": ["2.1.1 Keyboard", "2.4.3 Focus Order"],
-    "select-name": ["4.1.2 Name, Role, Value"],
-    "server-side-image-map": ["1.1.1 Non-text Content"],
-    "summary-name": ["4.1.2 Name, Role, Value"],
-    "svg-img-alt": ["1.1.1 Non-text Content"],
-    "td-headers-attr": ["1.3.1 Info and Relationships"],
-    "th-has-data-cells": ["1.3.1 Info and Relationships"],
-    "valid-lang": ["3.1.2 Language of Parts"],
-    "video-caption": ["1.2.2 Captions (Prerecorded)"],
-    "autocomplete-valid": ["1.3.5 Identify Input Purpose"],
-    "avoid-inline-spacing": ["1.4.12 Text Spacing"],
-    "target-size": ["2.5.5 Target Size"],
-    "color-contrast-enhanced":["1.4.6 Contrast (Enhanced)"],
-    "identical-links-same-purpose":["2.4.9 Link Purpose (Link Only)"],
-    "meta-refresh-no-exceptions":["2.2.4 Interruptions","3.2.5 Change on Request"],
-"area-alt": ["2.4.4 Link Purpose (In Context)", "4.1.2 Name, Role, Value"],
-    "aria-allowed-attr": ["4.1.2 Name, Role, Value"],
-    "aria-braille-equivalent": ["4.1.2 Name, Role, Value"],
-    "audio-caption":["1.2.1 Audio-only and Video-only (Prerecorded)"],
-    "aria-command-name": ["4.1.2 Name, Role, Value"],
-    "aria-conditional-attr": ["4.1.2 Name, Role, Value"],
-    "aria-deprecated-role": ["4.1.2 Name, Role, Value"],
-    "aria-hidden-body": ["1.3.1 Info and Relationships", "4.1.2 Name, Role, Value"],
-    "aria-hidden-focus": ["4.1.2 Name, Role, Value"],
-    "aria-input-field-name": ["4.1.2 Name, Role, Value"],
-    "aria-meter-name": ["1.1.1 Non-text Content"],
-    "aria-progressbar-name": ["1.1.1 Non-text Content"],
-    "aria-prohibited-attr": ["4.1.2 Name, Role, Value"],
-    "aria-required-attr": ["4.1.2 Name, Role, Value"],
-    "aria-required-children": ["1.3.1 Info and Relationships"],
-    "aria-required-parent": ["1.3.1 Info and Relationships"],
-    "aria-roledescription":["4.1.2 Name, Role, Value"],
-    "aria-roles": ["4.1.2 Name, Role, Value"],
-    "aria-toggle-field-name": ["4.1.2 Name, Role, Value"],
-    "aria-tooltip-name": ["4.1.2 Name, Role, Value"],
-    "aria-valid-attr-value": ["4.1.2 Name, Role, Value"],
-    "aria-valid-attr": ["4.1.2 Name, Role, Value"],
-    "blink": ["2.3.1 Three Flashes or Below Threshold"],
-    "button-name": ["4.1.2 Name, Role, Value"],
-    "bypass": ["2.4.1 Bypass Blocks"],
-    "color-contrast": ["1.4.3 Contrast (Minimum)"],
-    "definition-list": ["1.3.1 Info and Relationships"],
-    "dlitem": ["1.3.1 Info and Relationships"],
-    "document-title": ["2.4.2 Page Titled"],
-    "duplicate-id-active":["4.1.1 Parsing (Obsolete and removed)"],
-    "duplicate-id":["4.1.1 Parsing (Obsolete and removed)"],
-    "duplicate-id-aria": ["4.1.2 Name, Role, Value"],
-    "form-field-multiple-labels": ["3.3.2 Labels or Instructions"],
-    "frame-focusable-content": ["2.1.1 Keyboard"],
-    "frame-title-unique": ["4.1.2 Name, Role, Value"],
-    "frame-title": ["4.1.2 Name, Role, Value"],
-    "html-has-lang": ["3.1.1 Language of Page"],
-    "html-lang-valid": ["3.1.2 Language of Parts"],
-    "html-xml-lang-mismatch": ["3.1.2 Language of Parts"],
-    "image-alt": ["1.1.1 Non-text Content"],
-    "input-button-name": ["4.1.2 Name, Role, Value"],
-    "input-image-alt": ["1.1.1 Non-text Content"],
-    "label": ["4.1.2 Name, Role, Value"],
-    "link-in-text-block": ["1.4.1 Use of Color"],
-    "link-name": ["2.4.4 Link Purpose (In Context)", "2.4.9 Link Purpose (Link Only)"],
-    "list": ["1.3.1 Info and Relationships"],
-    "listitem": ["1.3.1 Info and Relationships"],
-    "marquee": ["2.3.1 Three Flashes or Below Threshold"],
-    "meta-refresh": ["2.2.1 Timing Adjustable"],
-    "meta-viewport": ["1.4.4 Resize text"],
-    "nested-interactive": ["4.1.2 Name, Role, Value"],
-    "no-autoplay-audio": ["1.4.2 Audio Control"],
-    "object-alt": ["1.1.1 Non-text Content"],
-    "role-img-alt": ["1.1.1 Non-text Content"],
-    "scrollable-region-focusable": ["2.1.1 Keyboard", "2.4.3 Focus Order"],
-    "select-name": ["4.1.2 Name, Role, Value"],
-    "server-side-image-map": ["1.1.1 Non-text Content"],
-    "summary-name": ["4.1.2 Name, Role, Value"],
-    "svg-img-alt": ["1.1.1 Non-text Content"],
-    "td-headers-attr": ["1.3.1 Info and Relationships"],
-    "th-has-data-cells": ["1.3.1 Info and Relationships"],
-    "valid-lang": ["3.1.2 Language of Parts"],
-    "video-caption": ["1.2.2 Captions (Prerecorded)"],
-    "autocomplete-valid": ["1.3.5 Identify Input Purpose"],
-    "avoid-inline-spacing": ["1.4.12 Text Spacing"],
-    "target-size": ["2.5.5 Target Size"],
-    "color-contrast-enhanced":["1.4.6 Contrast (Enhanced)"],
-    "identical-links-same-purpose":["2.4.9 Link Purpose (Link Only)"],
-    "meta-refresh-no-exceptions":["2.2.4 Interruptions","3.2.5 Change on Request"],
-    "image-alt-not-descriptive":["1.1.1 Non-text Content"],
-    "video-captions-not-descriptive":["1.2.1 Audio-only and Video-only (Prerecorded)", "1.2.3 Audio Description or Media Alternative (Prerecorded)"],
-    "lang-mismatch":["3.1.1 Language of Page"],
-    "missing-lang-tag":["3.1.2 Language of Parts"],
-    "link-text-mismatch":["2.4.4 Link Purpose (In Context)","2.4.9 Link Purpose (Link Only)"],
-    "button-label-mismatch":["2.5.3 Label in Name", "4.1.2 Name, Role, Value"],
-    "form-label-mismatch":["3.3.2 Labels or Instructions"],
-    "ambiguous-heading":["2.4.6 Headings and Labels", "2.4.10 Section Headings"],
-    "incorrect-semantic-tag":["1.3.1 Info and Relationships"],
-    "landmark-structural-violation":["1.3.6 Identify Purpose"],
-    "landmark-purpose-mismatch":["1.3.6 Identify Purpose"],
-    "page-title-not-descriptive":["2.4.2 Page Titled"],
-   "landmark-unique": ["1.3.1 Info and Relationships"],
-   "landmark-one-main": ["1.3.1 Info and Relationships"],
-   "region": ["1.3.1 Info and Relationships"],
-   "page-has-heading-one": ["2.4.6 Headings and Labels"],
-   "aria-allowed-role": ["4.1.2 Name, Role, Value"],
-   "landmark-no-duplicate-banner": ["1.3.1 Info and Relationships"],
-   "landmark-contentinfo-is-top-level": ["1.3.1 Info and Relationships"],
-   "landmark-banner-is-top-level": ["1.3.1 Info and Relationships"],
-   "skip-link": ["2.4.1 Bypass Blocks"],
-   "empty-heading": ["2.4.6 Headings and Labels"],
-   "heading-order": ["1.3.1 Info and Relationships"],
-   "tabindex": ["2.1.1 Keyboard", "2.4.3 Focus Order"],
-   "presentation-role-conflict": ["1.3.1 Info and Relationships", "4.1.2 Name, Role, Value"],
-   "landmark-no-duplicate-contentinfo": ["1.3.1 Info and Relationships"],
-   "landmark-complementary-is-top-level": ["1.3.1 Info and Relationships"],
-   "aria-dialog-name": ["4.1.2 Name, Role, Value"],
-   "label-title-only": ["3.3.2 Labels or Instructions"],
-   "image-redundant-alt":["1.1.1 Non-text Content"],
-   "landmark-main-is-top-level": ["1.3.1 Info and Relationships"],
-   "landmark-no-duplicate-main": ["1.3.1 Info and Relationships"], 
-   "nested-interactive": ["1.3.1 Info and Relationships", "4.1.2 Name, Role, Value"],
-    "audio-caption": ["1.2.1 Audio-only and Video-only (Prerecorded)"],
-   "avoid-inline-spacing": ["1.4.12 Text Spacing"],
-   "blink": ["2.3.1 Three Flashes or Below Threshold"],
-   "definition-list": ["1.3.1 Info and Relationships"],
-   "dlitem": ["1.3.1 Info and Relationships"],
-   "identical-links-same-purpose": ["2.4.9 Link Purpose (Link Only)"],
-   "incorrect-semantic-tag": ["1.3.1 Info and Relationships"],
-   "landmark-purpose-mismatch": ["1.3.6 Identify Purpose"],
-   "landmark-structural-violation": ["1.3.6 Identify Purpose"],
-   "list": ["1.3.1 Info and Relationships"],
-   "marquee": ["2.3.1 Three Flashes or Below Threshold"],
-   "meta-refresh-no-exceptions": ["2.2.4 Interruptions", "3.2.5 Change on Request"],
-   "server-side-image-map": ["1.1.1 Non-text Content"],
-   "video-captions-not-descriptive": ["1.2.1 Audio-only and Video-only (Prerecorded)", "1.2.3 Audio Description or Media Alternative (Prerecorded)"],
-   "skip-link": ["2.4.1 Bypass Blocks"],"accesskeys": ["2.1.1 Keyboard", "2.4.1 Bypass Blocks"],
-   "aria-text": ["4.1.2 Name, Role, Value"],
-   "aria-treeitem-name": ["4.1.2 Name, Role, Value"],
-   "meta-viewport-large": ["1.4.4 Resize text"],
-"scope-attr-valid": ["1.3.1 Info and Relationships"],
-"empty-table-header": ["1.3.1 Info and Relationships", "2.4.6 Headings and Labels"],
-"frame-tested":["4.1.2 Name, Role, Value", "2.4.2 Page Titled"]
-   }
+    "area-alt": [
+        "1.1.1 Non-text Content",
+        "2.4.4 Link Purpose (In Context)",
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-allowed-attr": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-braille-equivalent": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-command-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-conditional-attr": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-deprecated-role": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-hidden-body": [
+        "1.3.1 Info and Relationships",
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-hidden-focus": [
+        "1.3.1 Info and Relationships",
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-input-field-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-meter-name": [
+        "1.1.1 Non-text Content"
+    ],
+    "aria-progressbar-name": [
+        "1.1.1 Non-text Content"
+    ],
+    "aria-prohibited-attr": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-required-attr": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-required-children": [
+        "1.3.1 Info and Relationships"
+    ],
+    "aria-required-parent": [
+        "1.3.1 Info and Relationships"
+    ],
+    "aria-roles": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-toggle-field-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-tooltip-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-valid-attr-value": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-valid-attr": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "blink": [
+        "2.2.2 Pause, Stop, Hide"
+    ],
+    "button-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "bypass": [
+        "2.4.1 Bypass Blocks"
+    ],
+    "color-contrast": [
+        "1.4.3 Contrast (Minimum)"
+    ],
+    "definition-list": [
+        "1.3.1 Info and Relationships"
+    ],
+    "dlitem": [
+        "1.3.1 Info and Relationships"
+    ],
+    "document-title": [
+        "2.4.2 Page Titled"
+    ],
+    "duplicate-id-aria": [
+        "4.1.1 Parsing"
+    ],
+    "form-field-multiple-labels": [
+        "3.3.2 Labels or Instructions"
+    ],
+    "frame-focusable-content": [
+        "2.1.1 Keyboard"
+    ],
+    "frame-title-unique": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "frame-title": [
+        "2.4.1 Bypass Blocks",
+        "4.1.2 Name, Role, Value"
+    ],
+    "html-has-lang": [
+        "3.1.1 Language of Page"
+    ],
+    "html-lang-valid": [
+        "3.1.1 Language of Page"
+    ],
+    "html-xml-lang-mismatch": [
+        "3.1.1 Language of Page"
+    ],
+    "image-alt": [
+        "1.1.1 Non-text Content"
+    ],
+    "input-button-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "input-image-alt": [
+        "1.1.1 Non-text Content"
+    ],
+    "label": [
+        "1.3.1 Info and Relationships",
+        "4.1.2 Name, Role, Value"
+    ],
+    "link-in-text-block": [
+        "1.4.1 Use of Color"
+    ],
+    "link-name": [
+        "2.4.4 Link Purpose (In Context)",
+        "4.1.2 Name, Role, Value"
+    ],
+    "list": [
+        "1.3.1 Info and Relationships"
+    ],
+    "listitem": [
+        "1.3.1 Info and Relationships"
+    ],
+    "marquee": [
+        "2.2.2 Pause, Stop, Hide"
+    ],
+    "meta-refresh": [
+        "2.2.1 Timing Adjustable",
+        "2.2.4 Interruptions",
+        "3.2.5 Change on Request"
+    ],
+    "meta-viewport": [
+        "1.4.4 Resize text"
+    ],
+    "nested-interactive": [
+        "1.3.1 Info and Relationships",
+        "4.1.2 Name, Role, Value"
+    ],
+    "no-autoplay-audio": [
+        "1.4.2 Audio Control"
+    ],
+    "object-alt": [
+        "1.1.1 Non-text Content"
+    ],
+    "role-img-alt": [
+        "1.1.1 Non-text Content"
+    ],
+    "scrollable-region-focusable": [
+        "2.1.1 Keyboard",
+        "2.4.3 Focus Order"
+    ],
+    "select-name": [
+        "1.3.1 Info and Relationships",
+        "4.1.2 Name, Role, Value"
+    ],
+    "server-side-image-map": [
+        "1.1.1 Non-text Content"
+    ],
+    "summary-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "svg-img-alt": [
+        "1.1.1 Non-text Content"
+    ],
+    "td-headers-attr": [
+        "1.3.1 Info and Relationships"
+    ],
+    "th-has-data-cells": [
+        "1.3.1 Info and Relationships"
+    ],
+    "valid-lang": [
+        "3.1.2 Language of Parts"
+    ],
+    "video-caption": [
+        "1.2.2 Captions (Prerecorded)"
+    ],
+    "autocomplete-valid": [
+        "1.3.5 Identify Input Purpose"
+    ],
+    "avoid-inline-spacing": [
+        "1.4.12 Text Spacing"
+    ],
+    "target-size": [
+        "2.5.8 Target Size (Minimum)"
+    ],
+    "color-contrast-enhanced": [
+        "1.4.6 Contrast (Enhanced)"
+    ],
+    "identical-links-same-purpose": [
+        "2.4.9 Link Purpose (Link Only)"
+    ],
+    "meta-refresh-no-exceptions": [
+        "2.2.4 Interruptions",
+        "3.2.5 Change on Request"
+    ],
+    "audio-caption": [
+        "1.2.1 Audio-only and Video-only (Prerecorded)"
+    ],
+    "aria-roledescription": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "duplicate-id-active": [
+        "4.1.1 Parsing (Obsolete and removed)"
+    ],
+    "duplicate-id": [
+        "4.1.1 Parsing (Obsolete and removed)"
+    ],
+    "image-alt-not-descriptive": [
+        "1.1.1 Non-text Content"
+    ],
+    "video-captions-not-descriptive": [
+        "1.2.1 Audio-only and Video-only (Prerecorded)",
+        "1.2.3 Audio Description or Media Alternative (Prerecorded)"
+    ],
+    "lang-mismatch": [
+        "3.1.1 Language of Page"
+    ],
+    "missing-lang-tag": [
+        "3.1.2 Language of Parts"
+    ],
+    "link-text-mismatch": [
+        "2.4.4 Link Purpose (In Context)",
+        "2.4.9 Link Purpose (Link Only)"
+    ],
+    "button-label-mismatch": [
+        "2.5.3 Label in Name",
+        "4.1.2 Name, Role, Value"
+    ],
+    "form-label-mismatch": [
+        "3.3.2 Labels or Instructions"
+    ],
+    "ambiguous-heading": [
+        "2.4.6 Headings and Labels",
+        "2.4.10 Section Headings"
+    ],
+    "incorrect-semantic-tag": [
+        "1.3.1 Info and Relationships"
+    ],
+    "landmark-structural-violation": [
+        "1.3.6 Identify Purpose"
+    ],
+    "landmark-purpose-mismatch": [
+        "1.3.6 Identify Purpose"
+    ],
+    "page-title-not-descriptive": [
+        "2.4.2 Page Titled"
+    ],
+    "landmark-unique": [
+        "1.3.1 Info and Relationships"
+    ],
+    "landmark-one-main": [
+        "1.3.1 Info and Relationships"
+    ],
+    "region": [
+        "1.3.1 Info and Relationships"
+    ],
+    "page-has-heading-one": [
+        "2.4.6 Headings and Labels"
+    ],
+    "aria-allowed-role": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "landmark-no-duplicate-banner": [
+        "1.3.1 Info and Relationships"
+    ],
+    "landmark-contentinfo-is-top-level": [
+        "1.3.1 Info and Relationships"
+    ],
+    "landmark-banner-is-top-level": [
+        "1.3.1 Info and Relationships"
+    ],
+    "skip-link": [
+        "2.4.1 Bypass Blocks"
+    ],
+    "empty-heading": [
+        "2.4.6 Headings and Labels"
+    ],
+    "heading-order": [
+        "1.3.1 Info and Relationships"
+    ],
+    "tabindex": [
+        "2.1.1 Keyboard",
+        "2.4.3 Focus Order"
+    ],
+    "presentation-role-conflict": [
+        "1.3.1 Info and Relationships",
+        "4.1.2 Name, Role, Value"
+    ],
+    "landmark-no-duplicate-contentinfo": [
+        "1.3.1 Info and Relationships"
+    ],
+    "landmark-complementary-is-top-level": [
+        "1.3.1 Info and Relationships"
+    ],
+    "aria-dialog-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "label-title-only": [
+        "3.3.2 Labels or Instructions"
+    ],
+    "image-redundant-alt": [
+        "1.1.1 Non-text Content"
+    ],
+    "landmark-main-is-top-level": [
+        "1.3.1 Info and Relationships"
+    ],
+    "landmark-no-duplicate-main": [
+        "1.3.1 Info and Relationships"
+    ],
+    "accesskeys": [
+        "2.1.1 Keyboard",
+        "2.4.1 Bypass Blocks"
+    ],
+    "aria-text": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "aria-treeitem-name": [
+        "4.1.2 Name, Role, Value"
+    ],
+    "meta-viewport-large": [
+        "1.4.4 Resize text"
+    ],
+    "scope-attr-valid": [
+        "1.3.1 Info and Relationships"
+    ],
+    "empty-table-header": [
+        "1.3.1 Info and Relationships",
+        "2.4.6 Headings and Labels"
+    ],
+    "frame-tested": [
+        "4.1.2 Name, Role, Value",
+        "2.4.2 Page Titled"
+    ],
+    "autocomplete-purpose-mismatch": [
+        "1.3.5 Identify Input Purpose"
+    ],
+    "css-orientation-lock": [
+        "1.3.4 Orientation"
+    ],
+    "error-correction": [
+        "3.3.3 Error Suggestion"
+    ],
+    "label-name-mismatch": [
+        "2.5.3 Label in Name"
+    ],
+    "p-as-heading": [
+        "1.3.1 Info and Relationships"
+    ],
+    "sensory-instructions": [
+        "1.3.3 Sensory Characteristics"
+    ],
+    "single-key-shortcut-no-modifier": [
+        "2.1.4 Character Key Shortcuts"
+    ],
+    "table-duplicate-name": [
+        "1.3.1 Info and Relationships"
+    ],
+    "table-fake-caption": [
+        "1.3.1 Info and Relationships"
+    ],
+    "td-has-header": [
+        "1.3.1 Info and Relationships"
+    ]
+}
