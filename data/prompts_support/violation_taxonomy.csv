@@ -1,22 +1,22 @@
 violationnumberID,Category
-image-alt-not-descriptive, Semantic
-video-captions-not-descriptive	, Semantic
-lang-mismatch	, Semantic
-missing-lang-tag	, Semantic
-link-text-mismatch	, Semantic
-button-label-mismatch	, Semantic
-form-label-mismatch	, Semantic
-ambiguous-heading	, Semantic
-incorrect-semantic-tag	, Semantic
-landmark-structural-violation		, Semantic
-landmark-purpose-mismatch	, Semantic
-page-title-not-descriptive, Semantic
+image-alt-not-descriptive,Semantic
+video-captions-not-descriptive	,Semantic
+lang-mismatch	,Semantic
+missing-lang-tag	,Semantic
+link-text-mismatch	,Semantic
+button-label-mismatch	,Semantic
+form-label-mismatch	,Semantic
+ambiguous-heading	,Semantic
+incorrect-semantic-tag	,Semantic
+landmark-structural-violation		,Semantic
+landmark-purpose-mismatch	,Semantic
+page-title-not-descriptive,Semantic
 meta-viewport,Layout
 meta-viewport-large,Layout
 color-contrast,Layout
 avoid-inline-spacing,Layout
 target-size,Layout
-frame-title,Layout
+frame-title,Syntax
 color-contrast-enhanced,Layout
 blink,Syntax
 scope-attr-valid,Syntax
@@ -100,3 +100,25 @@ duplicate-id,Syntax
 duplicate-id-active,Syntax
 html-has-lang,Syntax
 select-name,Syntax
+ambiguous-heading,Semantic
+aria-braille-equivalent,Syntax
+aria-conditional-attr,Syntax
+aria-treeitem-name,Syntax
+autocomplete-purpose-mismatch,Semantic
+button-label-mismatch,Semantic
+css-orientation-lock,Layout
+error-correction,Semantic
+form-field-multiple-labels,Syntax
+form-label-mismatch,Semantic
+label-name-mismatch,Semantic
+lang-mismatch,Semantic
+link-text-mismatch,Semantic
+meta-refresh-no-exceptions,Syntax
+missing-lang-tag,Semantic
+p-as-heading,Syntax
+sensory-instructions,Semantic
+single-key-shortcut-no-modifier,Syntax
+table-duplicate-name,Syntax
+table-fake-caption,Syntax
+td-has-header,Syntax
+video-captions-not-descriptive,Semantic

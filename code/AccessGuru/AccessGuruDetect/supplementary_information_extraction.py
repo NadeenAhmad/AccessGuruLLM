@@ -65,7 +65,6 @@ def extract_supplementary_info(row):
         filename += '.html'
 
     html_file = os.path.join(html_base_path, filename)
-    html_file = "/content"+html_file
     snippet = row["affected_html_elements"]
 
     try:
