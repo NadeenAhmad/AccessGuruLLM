@@ -1,5 +1,12 @@
 # AccessGuru: Leveraging LLMs to Detect and Correct Web Accessibility Violations in HTML Code
 
+[![GitHub stars](https://img.shields.io/github/stars/NadeenAhmad/AccessGuruLLM?style=social)](https://github.com/NadeenAhmad/AccessGuruLLM/stargazers)
+[![Paper: ASSETS '25](https://img.shields.io/badge/Paper-ASSETS%20'25-blue)](https://doi.org/10.1145/3663547.3746360)
+[![Dataset: DaRUS](https://img.shields.io/badge/Dataset-DaRUS-green)](https://doi.org/10.18419/DARUS-5177)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+⭐ If you find AccessGuru useful, please star this repository. It helps other researchers find it.
+
 
 ## Overview
 
@@ -92,7 +99,8 @@
 │   └── baseline_dataset/              # Results from baseline dataset: Syntax and layout violation results per LLM (e.g., GPT4, Qwen, Mistral) for our method (AccessGuru) and 3 baseline methods.
 │
 ├── taxonomy_web_accessibility_violations.md     # Our Full taxonomy of accessibility violations.
-├── accessguru_sampled_semantic_violations_dataset.md    # Description of the semantic dataset (You can view our sampled dataset of Semantic Web accessibility violations here, Size=55)
+├── accessguru_sampled_semantic_violations_dataset.md    # Examples of semantic accessibility violations from our taxonomy (Size=49)
+├── accessguru_semantic_test_set.md                       # The 55 semantic test cases (accessguru_sampled_semantic_violations.csv) with HTML and preview
 │
 ├── LICENSE.txt                         # License file (CC BY 4.0)
 ├── README.md                          # Project documentation
@@ -208,7 +216,7 @@ Raw HTML files and Supplementary Information can be found at: https://doi.org/10
 
 This table presents a sample record of an accessibility violation found on the webpage https://www.usa.gov/about-the-us. It includes identifiers such as id and web_URL_id, the domain category, and URLs for both the page and the violation description. The sample data violation is categorized under the Layout violation category, specifically concerning color contrast enhancement with a serious impact level. The table shows that the Webpage has 4 instances of this violation, listing affected HTML elements from the webpage. File paths and scrape status confirm the page's local HTML file has been saved successfully. Additional details about the violation, including WCAG references and supplementary information, are also provided.  Here, since the violation is related to color-contrast-enhanced, the supplementary_information provides detailed styling data, including the foreground color (#00bde3), background color (#112f4e), actual contrast ratio (6.09), font size (13.6pt (18.08px)), font weight (normal), expected contrast ratio (7:1), and other relevant attributes like shadow color which can be helpful for LLMs to understand the affected_html_elements better.
 
-> 📝 You can view examples of semantic Web accessibility violations at [accessguru_sampled_semantic_violations_dataset.md](accessguru_sampled_semantic_violations_dataset.md).
+> 📝 You can view examples of semantic Web accessibility violations at [accessguru_sampled_semantic_violations_dataset.md](accessguru_sampled_semantic_violations_dataset.md). The 55 semantic test cases used in our evaluation are shown in [accessguru_semantic_test_set.md](accessguru_semantic_test_set.md).
 
 👉 You can explore the full dataset [here](data/accessguru_dataset).
 
@@ -349,15 +357,30 @@ The AccessGuru dataset is licensed under a [Creative Commons Attribution 4.0 Int
 
 ## 📄 Citation
 
-If you find this work useful, please consider citing our paper:
+If you find this work useful, please ⭐ star this repository and cite our paper:
 
-```
+```bibtex
 @inproceedings{fathallah2025accessguru,
-  title={AccessGuru: Leveraging LLMs to Detect and Correct Web Accessibility Violations in HTML Code},
-  author={Fathallah, Nadeen and Hernández, Daniel and Staab, Steffen},
-  booktitle={Proceedings of the 27th International ACM SIGACCESS Conference on Computers and Accessibility},
-  year={2025},
-  publisher={ACM}
+  title     = {AccessGuru: Leveraging LLMs to Detect and Correct Web Accessibility Violations in HTML Code},
+  author    = {Fathallah, Nadeen and Hernández, Daniel and Staab, Steffen},
+  booktitle = {Proceedings of the 27th International ACM SIGACCESS Conference on Computers and Accessibility},
+  series    = {ASSETS '25},
+  year      = {2025},
+  address   = {Denver, CO, USA},
+  publisher = {ACM},
+  numpages  = {22},
+  doi       = {10.1145/3663547.3746360}
 }
+```
 
+If you use the dataset, please also cite:
 
+```bibtex
+@misc{fathallah2025accessgurudataset,
+  title     = {AccessGuru},
+  author    = {Fathallah, Nadeen and Hernández, Daniel and Staab, Steffen},
+  year      = {2025},
+  publisher = {DaRUS},
+  doi       = {10.18419/DARUS-5177}
+}
+```

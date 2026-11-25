@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use AccessGuru, please cite our paper and dataset."
+title: "AccessGuru: Leveraging LLMs to Detect and Correct Web Accessibility Violations in HTML Code"
+authors:
+  - family-names: Fathallah
+    given-names: Nadeen
+    affiliation: University of Stuttgart
+    orcid: "https://orcid.org/0000-0001-7921-034X"
+  - family-names: Hernández
+    given-names: Daniel
+    affiliation: University of Stuttgart
+    orcid: "https://orcid.org/0000-0002-7896-0875"
+  - family-names: Staab
+    given-names: Steffen
+    affiliation: University of Stuttgart
+    orcid: "https://orcid.org/0000-0002-0780-4154"
+repository-code: "https://github.com/NadeenAhmad/AccessGuruLLM"
+license: CC-BY-4.0
+keywords:
+  - Web accessibility
+  - WCAG
+  - Large Language Models
+  - Assistive technology
+  - Benchmark dataset
+identifiers:
+  - type: doi
+    value: 10.18419/DARUS-5177
+    description: AccessGuru dataset (DaRUS)
+  - type: doi
+    value: 10.1145/3663547.3746360
+    description: AccessGuru paper (ASSETS '25)
+preferred-citation:
+  type: conference-paper
+  title: "AccessGuru: Leveraging LLMs to Detect and Correct Web Accessibility Violations in HTML Code"
+  authors:
+    - family-names: Fathallah
+      given-names: Nadeen
+      orcid: "https://orcid.org/0000-0001-7921-034X"
+    - family-names: Hernández
+      given-names: Daniel
+      orcid: "https://orcid.org/0000-0002-7896-0875"
+    - family-names: Staab
+      given-names: Steffen
+      orcid: "https://orcid.org/0000-0002-0780-4154"
+  collection-title: "Proceedings of the 27th International ACM SIGACCESS Conference on Computers and Accessibility (ASSETS '25)"
+  publisher:
+    name: ACM
+  conference:
+    name: "ASSETS '25"
+    city: Denver
+    region: CO
+    country: US
+    date-start: 2025-10-26
+    date-end: 2025-10-29
+  year: 2025
+  doi: 10.1145/3663547.3746360

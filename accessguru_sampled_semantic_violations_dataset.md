@@ -1,6 +1,6 @@
-# Semantic Accessibility Violations Dataset
+# Examples of Semantic Accessibility Violations
 
-This table presents 49 semantic accessibility violations along with associated HTML and image context where applicable.
+This table presents 49 examples of semantic accessibility violations from our taxonomy, along with associated HTML and image context where applicable. The 55 semantic test cases used in our evaluation are listed in [accessguru_semantic_test_set.md](accessguru_semantic_test_set.md).
 
 <table border="1" >
   <tr style="text-align: right;">
@@ -20,7 +20,7 @@ This table presents 49 semantic accessibility violations along with associated H
           <pre>&lt;html lang=&quot;en&quot;&gt; &#10; &lt;img alt=&quot;ERCIM logo&quot; src=&quot;image.png&quot;/&gt; &#10; &lt;/html&gt;</pre>
       </td>
       <td>
-          <html lang="en"><img alt="ERCIM logo" src="https://www.ercim.eu/publication/logos/logo-alt.svg" width="40%"></html>
+          <img src="data/accessguru_dataset/accessguru_semantic_violations_sampled_dataset_supp_material/1.png" width="40%">
       </td>
   </tr>
 <tr>
@@ -31,7 +31,7 @@ This table presents 49 semantic accessibility violations along with associated H
     <td>
         <pre>&lt;html lang=&quot;en&quot;&gt;&#10;&lt;svg aria-label=&quot;W3C&quot; role=&quot;img&quot; viewbox=&quot;0 0 512 512&quot;&gt;&#10;&lt;path d=&quot;M108.46&quot;&gt;&lt;/path&gt;&#10;&lt;path d=&quot;M107.6 &quot; fill=&quot;#e44d26&quot;&gt;&lt;/path&gt;&#10;&lt;path d=&quot;M256 &quot; fill=&quot;#f16529&quot;&gt;&lt;/path&gt;&#10;&lt;path d=&quot;M142 176&quot; fill=&quot;#ebebeb&quot;&gt;&lt;/path&gt;&#10;&lt;path d=&quot;M369.613.6v47.2l93-25.8&quot; fill=&quot;#fff&quot;&gt;&lt;/path&gt;&#10;&lt;/svg&gt;&#10;&lt;/html&gt;</pre>
     </td>
-    <td><img src="https://i.ibb.co/mFYM2Ft/image.png"width="40%" ></td>
+    <td><img src="data/accessguru_dataset/accessguru_semantic_violations_sampled_dataset_supp_material/2.png" width="40%"></td>
 </tr>
 <tr>
     <td>3</td>
@@ -43,7 +43,7 @@ This table presents 49 semantic accessibility violations along with associated H
     </td>
     <td>
         <!DOCTYPE html>                
-        <html lang="en"><img alt="ERCIM logo" src="https://www.ercim.eu/publication/logos/logo-alt.svg" width="40%"/></html>
+        <img src="data/accessguru_dataset/accessguru_semantic_violations_sampled_dataset_supp_material/3.png" width="40%">
     </td>
 </tr>
 <tr>

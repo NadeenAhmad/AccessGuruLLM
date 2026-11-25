@@ -17,7 +17,7 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Semantic | `image-alt-not-descriptive` | Alternative text is present but is inaccurate, misleading, or does not correctly describe the content or purpose of the image, including an empty `alt=""` on an informative image (`<img>`, `<svg role="img">`, `role="img"`, `<object>`). | 1.1.1 | Critical | Image and surrounding context |
 | Semantic | `video-captions-inaccurate` (dataset name: `video-captions-not-descriptive`) | Captions are present but do not accurately represent the spoken content or meaningful audio information in the video. | 1.2.2 | Critical | Video/audio and captions |
 | Semantic | `lang-mismatch` | A valid page-level `lang` attribute is present, but its value does not match the actual language of the page content. | 3.1.1 | Serious | Page content |
-| Semantic | `language-of-parts-mismatch` | A valid language declaration is present on a passage or component, but it does not match the actual language of that content. | 3.1.2 | Serious | Text of the relevant passage/component |
+| Semantic | `language-of-parts-mismatch` (dataset name: `missing-lang-tag`) | A valid language declaration is present on a passage or component, but it does not match the actual language of that content. | 3.1.2 | Serious | Text of the relevant passage/component |
 | Semantic | `link-text-mismatch` | Link text or its accessible name is present but does not accurately describe the destination or purpose of the link. | 2.4.4 | Serious | Surrounding context and destination/next state |
 | Semantic | `button-label-mismatch` | An element with the button role has a label or accessible name, but it does not accurately describe the action or result produced by activating it. | 2.4.6 | Critical | Button context and resulting/next state |
 | Semantic | `form-label-mismatch` | A form control has a label, but the label does not accurately describe the control's purpose or the information expected from the user. | 2.4.6 | Critical | Form control, surrounding context, and expected input |
@@ -31,7 +31,6 @@ Following AccessGuru (Fathallah et al., ASSETS '25), violations are classified i
 | Semantic | `error-message-mismatch` | An error message is present but identifies the wrong field, describes the wrong problem, or does not correspond to the actual invalid input. | 3.3.1 | Serious | Form values, validation state, and error message |
 | Semantic | `error-correction` | No accessible suggestions for correcting input errors. | 3.3.3 | Serious | Error context and input requirements |
 | Semantic | `label-name-mismatch` | The accessible name for control does not include the visible label text, which may confuse users relying on speech input or screen readers. | 2.5.3 | Serious | Input |
-| Semantic | `missing-lang-tag` | Sections in different languages lack appropriate lang attributes. | 3.1.2 | Serious |  |
 | Semantic | `sensory-instructions` | Instructions rely on sensory characteristics without alternatives. | 1.3.3 | Serious |  |
 
 ---
