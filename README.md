@@ -8,7 +8,7 @@
 🔬 Contributions:
 
 -  A taxonomy categorizing Web accessibility violations into **Syntactic**, **Semantic**, and **Layout** violations
--  A benchmark dataset of **~3,500 real-world violations** across **94 types**
+-  A benchmark dataset of **over 3,500 real-world violations** across **112 types**
 -  A modular pipeline:
   - `AccessGuruDetect`: Detect violations (Axe-Playwright + LLM) [[SyntaxLayout Notebook](https://github.com/NadeenAhmad/AccessGuruLLM/blob/main/notebooks/1_AccessGuruDetect_SyntaxLayout.ipynb)]   [[Semantic Notebook](https://github.com/NadeenAhmad/AccessGuruLLM/blob/main/notebooks/1_AccessGuruDetect_Semantic.ipynb)]
   - `AccessGuruCorrect`: Generate corrections using LLM prompting strategies [[AccessGuruCorrect Notebook](https://github.com/NadeenAhmad/AccessGuruLLM/blob/main/notebooks/2_AccessGuruCorrect_Notebook.ipynb)]
@@ -63,9 +63,9 @@
 ├── data/                                        # Datasets and prompt-related resources
 │
 │   ├── accessguru_dataset/                      # Our dataset of Web accessibility Violations
-│   │   ├── accessguru_sampled_syntax_layout_dataset.csv         # Sampled subset of syntax & layout violations (Size=250)
+│   │   ├── accessguru_sampled_syntax_layout_dataset.csv         # Sampled test set (Size=305: 195 syntax, 55 layout, 55 semantic)
 │   │   ├── accessguru_sampled_semantic_violations.csv           # Sampled subset of semantic violations (Size=55)
-│   │   ├── Original_full_data.csv                               # Full dataset before filtering/sampling (Size=3500)
+│   │   ├── Original_full_data_new.csv                           # Full dataset (over 3,500 violations, 112 types)
 │
 │   ├── prompts_support/                        # Files supporting prompt construction and WCAG mapping
 │   │   ├── Playwright_all_detection_tags.csv   # Tags extracted for using Axe-Playwright in rule-based detection
@@ -130,20 +130,20 @@ To support both detection and correction, we introduce a novel taxonomy that org
 
 
 ## 📊 Our Dataset
-- 3,524 annotated HTML Web accessibility violations
-- 94 distinct types
-- Sourced from 588 real-world web pages across domains (health, news, e-commerce, etc.)
+- Over 3,500 annotated HTML Web accessibility violations
+- 112 distinct types
+- Sourced from between 400 and 600 real-world websites across domains (health, news, e-commerce, etc.)
 
 ### Dataset Summary
 We introduce a new dataset that comprehensively covers syntactic, semantic, and layout accessibility violations, reflecting real-world accessibility violations. 
 
 Our dataset was collected through a structured process guided by the [WebAIM 2025 study](https://webaim.org/projects/million/), which identifies commonly visited websites with accessibility violations. 
 
-To account for variation in accessibility violations across domains—e.g., government sites often use data tables, while e-commerce relies heavily on forms and images—we used GPT-4 to identify a diverse set of popular Web domains such as health, education, government, news, technology, and e-commerce, including multilingual websites. We then asked GPT-4 to suggest representative URLs from each category based on sites listed in the WebAIM 2025 study. This process yielded 588 URLs. 
+To account for variation in accessibility violations across domains—e.g., government sites often use data tables, while e-commerce relies heavily on forms and images—we used GPT-4 to identify a diverse set of popular Web domains such as health, education, government, news, technology, and e-commerce, including multilingual websites. We then asked GPT-4 to suggest representative URLs from each category based on sites listed in the WebAIM 2025 study. This process yielded hundreds of URLs. 
 
-We crawled each URL using Playwright and retained only those pages where `document.readyState === "complete"`.  We applied AccessGuru Detection Module (See Figure 1) to each URL to identify Web accessibility violations.  This yielded 3,524 Web accessibility violations. The dataset spans over 94 distinct violation types across all three categories. To our knowledge, it is the most comprehensive publicly available dataset of real-world Web accessibility violations to date.  
+We crawled each URL using Playwright and retained only those pages where `document.readyState === "complete"`.  We applied AccessGuru Detection Module (See Figure 1) to each URL to identify Web accessibility violations.  This yielded over 3,500 Web accessibility violations. The dataset spans 112 distinct violation types across all three categories. To our knowledge, it is the most comprehensive publicly available dataset of real-world Web accessibility violations to date.  
 
-To ensure our evaluation reflects real-world Web accessibility violations, we sampled a representative subset of 305 violations from our full dataset of 3,524 instances. Sampling aligns the distribution of violation types in the subset with real-world frequencies reported in the WebAIM 2025 study. This method avoids biases caused by overrepresented violation types in large-scale crawled data but does not reflect their actual prevalence across the Web. This subset size was chosen to enable controlled and consistent comparison across LLMs and baselines. 
+To ensure our evaluation reflects real-world Web accessibility violations, we sampled a representative subset of 305 violations from our full dataset of over 3,500 instances. Sampling aligns the distribution of violation types in the subset with real-world frequencies reported in the WebAIM 2025 study. This method avoids biases caused by overrepresented violation types in large-scale crawled data but does not reflect their actual prevalence across the Web. This subset size was chosen to enable controlled and consistent comparison across LLMs and baselines. 
 
 ### ⚙️ Use Cases
 - Evaluating the effectiveness of LLMs in automated web accessibility repair.
@@ -164,7 +164,7 @@ Each row in our dataset corresponds to a unique web accessibility violation inst
 |--------------------------|-----------------------------------------------------------------------------|
 | `id`                    | Unique identifier for the row                                   |
 | `web_URL_id`             | Unique identifier for the URL                                   |
-|`domain_category` | The domain of the website's subject area (Domains: Educational Platforms, Government and Public Services, News and Media, E-commerce, Streaming Platforms, Health and Wellness, Technology, Science and Research )|
+|`domain_category` | The domain of the website's subject area (Domains: Educational Platforms, Government and Public Services, News and Media, E-commerce, Streaming Platforms, Health and Wellness, Technology, Science and Research ). A page listed under several domains has them separated by "; ".|
 | `web_URL`| The URL of the webpage where the violation was found                        |
 | `scrape_status`                | Status indicating whether the webpage was successfully scraped or not|
 | `html_file_name`                | Filename of the saved HTML file associated with the scraped page|
@@ -204,7 +204,7 @@ Here is an example of a dataset entry:
 | `wcag_reference` | ['1.4.6 Contrast (Enhanced)'] |
 | `supplementary_information` | {'fgColor': '#00bde3', 'bgColor': '#112f4e', 'contrastRatio': 6.09, 'fontSize': '13.6pt (18.08px)', 'fontWeight': 'normal', 'messageKey': None, 'expectedContrastRatio': '7:1', 'shadowColor': None} |
 
-Raw HTML files and Supplementary Information can be found at: https://drive.google.com/drive/folders/1g_n85XpH-w3t9QdcsZC0Bk-z9ukNLhZY?usp=drive_link 
+Raw HTML files and Supplementary Information can be found at: https://doi.org/10.18419/DARUS-5177 
 
 This table presents a sample record of an accessibility violation found on the webpage https://www.usa.gov/about-the-us. It includes identifiers such as id and web_URL_id, the domain category, and URLs for both the page and the violation description. The sample data violation is categorized under the Layout violation category, specifically concerning color contrast enhancement with a serious impact level. The table shows that the Webpage has 4 instances of this violation, listing affected HTML elements from the webpage. File paths and scrape status confirm the page's local HTML file has been saved successfully. Additional details about the violation, including WCAG references and supplementary information, are also provided.  Here, since the violation is related to color-contrast-enhanced, the supplementary_information provides detailed styling data, including the foreground color (#00bde3), background color (#112f4e), actual contrast ratio (6.09), font size (13.6pt (18.08px)), font weight (normal), expected contrast ratio (7:1), and other relevant attributes like shadow color which can be helpful for LLMs to understand the affected_html_elements better.
 
