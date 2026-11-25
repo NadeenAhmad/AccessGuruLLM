@@ -9364,11 +9364,8 @@ Fix any of the following:
   Element has focusable descendants, Fix any of the following:
   Element has focusable descendants, Fix any of the following:
   Element has focusable descendants",Serious,,
-2656435105,Layout,https://www.sltrib.com,12,frame-title,4,Ensures <iframe> and <frame> elements have an accessible name,"<iframe src=""javascript:false"" style=""width: 0px; height: 0px; border: 0px;""></iframe>",[{'messageKey': 'noAttr'}],"Fix any of the following:
-  Element has no title attribute
-  aria-label attribute does not exist or is empty
-  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
-  Element's default semantics were not overridden with role=""none"" or role=""presentation""",Serious,,
+340545659,Layout,https://www.lidl.com,8,color-contrast,4,Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds,"<a class=""clickable link clickable--theme-primary clickable--size-auto clickable--color-red clickable--bold-weight"" data-testid=""register"" href=""/register"">join myLidl</a>","[{'fgColor': '#ffffff', 'bgColor': '#ed1c24', 'contrastRatio': 4.38, 'fontSize': '12.8pt (17px)', 'fontWeight': 'bold', 'messageKey': None, 'expectedContrastRatio': '4.5:1', 'shadowColor': None}]","Fix any of the following:
+  Element has insufficient color contrast of 4.38 (foreground color: #ffffff, background color: #ed1c24, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1",Serious,,
 1746488226,Syntax,https://tv.youtube.com,7,landmark-contentinfo-is-top-level,3,Ensures the contentinfo landmark is at top level,"<footer class=""lb-footer lb-footer--tv lb-padding-top-s--bp-auto lb-lazy-module--initialized lb-analytics--initialized"" role=""contentinfo"" lb-auto-init=""LazyModule, LBAutoAnalytics"" lb-analytics-options=""{&quot;emitOnce&quot;:&quot;true&quot;,&quot;eventAction&quot;:&quot;impression&quot;,&quot;eventCategory&quot;:&quot;[yt-tv-next] Section View&quot;,&quot;eventLabel&quot;:&quot;TV Footer&quot;}"" lb-lazy-module-options=""{&quot;moduleUid&quot;:&quot;footer&quot;}"">",[{'role': 'contentinfo'}],"Fix any of the following:
   The contentinfo landmark is contained in another landmark.",Moderate,,
 5511408010,Syntax,https://www.nrl.navy.mil,5,aria-command-name,4,"Ensures every ARIA button, link and menuitem has an accessible name","<a id=""skip-target"" name=""skip-target"" class=""skip"" tabindex=""-1"" innertext=""Start of main content"" role=""button""></a>",[],"Fix any of the following:
